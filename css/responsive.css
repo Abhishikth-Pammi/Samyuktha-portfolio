@@ -433,3 +433,16 @@
         text-align: center;
     }
 }
+/* 2026 update */
+@media (max-width: 1080px) { .nav-link { font-size: 0.74rem; } }
+@media (max-width: 900px) {
+    .project-panel, .project-panel.active { grid-template-columns: 1fr; gap: 34px; }
+    .project-tabs { gap: 9px; }
+    .project-tab { font-size: .82rem; }
+}
+@media (max-width: 640px) {
+    .eyebrow, .feature-category, .experience-type, .card-label, .achievement-priority { font-size: .72rem; }
+    .project-tabs { display:grid; grid-template-columns:1fr 1fr; }
+    .project-tab { width:100%; padding:11px 10px; }
+    .detail-modal-content { padding:34px 22px 26px; }
+}

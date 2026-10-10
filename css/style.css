@@ -2398,355 +2398,154 @@ h2 span {
 
 
 
-.hero-metrics-wrap {
 
+/* =========================================
+   HERO ACHIEVEMENT HIGHLIGHTS — 5 CARDS
+   ========================================= */
 
-
+   .hero-metrics-wrap {
     position: relative;
-
-
-
     z-index: 5;
-
-
-
     margin-top: 110px;
-
-
-
     padding: 19px 0;
-
-
-
     border-top: 1px solid var(--border);
-
-
-
     border-bottom: 1px solid var(--border);
-
-
-
     background: rgba(5, 17, 19, 0.72);
-
-
-
     backdrop-filter: blur(16px);
-
-
-
 }
 
-
-
-
-
-
-
+/* Five cards in one row on desktop */
 .hero-metrics {
-
-
-
     display: grid;
-
-
-
-    grid-template-columns: repeat(4, 1fr);
-
-
-
+    grid-template-columns: repeat(5, minmax(0, 1fr));
     gap: 14px;
-
-
-
+    align-items: stretch;
 }
 
-
-
-
-
-
-
+/* Individual achievement card */
 .metric-card {
-
-
-
     position: relative;
-
-
-
+    width: 100%;
+    min-width: 0;
     min-height: 145px;
 
-
-
     display: flex;
-
-
-
     flex-direction: column;
-
-
-
     justify-content: center;
 
-
-
-    padding: 22px 21px;
-
-
-
+    padding: 22px 16px;
     overflow: hidden;
 
-
-
     border: 1px solid var(--border);
-
-
-
     border-radius: 15px;
 
-
-
-
-
-
-
-    background:
-
-
-
-        linear-gradient(
-
-
-
-            145deg,
-
-
-
-            rgba(85, 222, 213, 0.09),
-
-
-
-            rgba(255, 255, 255, 0.012)
-
-
-
-        );
-
-
-
-
-
-
+    background: linear-gradient(
+        145deg,
+        rgba(85, 222, 213, 0.09),
+        rgba(255, 255, 255, 0.012)
+    );
 
     transition:
-
-
-
         transform 0.3s ease,
-
-
-
         border-color 0.3s ease,
-
-
-
         background 0.3s ease;
-
-
-
 }
 
-
-
-
-
-
-
+/* Decorative circle */
 .metric-card::after {
-
-
-
     content: "";
-
-
-
     position: absolute;
-
-
-
     width: 95px;
-
-
-
     height: 95px;
-
-
-
     right: -33px;
-
-
-
     top: -38px;
 
-
-
     border: 1px solid rgba(85, 222, 213, 0.2);
-
-
-
     border-radius: 50%;
-
-
-
     background: rgba(85, 222, 213, 0.025);
 
-
-
+    pointer-events: none;
 }
 
-
-
-
-
-
-
+/* Hover effect */
 .metric-card:hover {
-
-
-
     transform: translateY(-5px);
-
-
-
     border-color: var(--accent-border);
 
-
-
-
-
-
-
-    background:
-
-
-
-        linear-gradient(
-
-
-
-            145deg,
-
-
-
-            rgba(85, 222, 213, 0.14),
-
-
-
-            rgba(255, 255, 255, 0.015)
-
-
-
-        );
-
-
-
+    background: linear-gradient(
+        145deg,
+        rgba(85, 222, 213, 0.14),
+        rgba(255, 255, 255, 0.015)
+    );
 }
 
-
-
-
-
-
-
+/* Category label */
 .metric-kicker {
-
-
-
     color: var(--accent);
-
-
-
     font-size: 0.58rem;
-
-
-
     font-weight: 600;
-
-
-
     letter-spacing: 0.11em;
-
-
-
     text-transform: uppercase;
-
-
-
     margin-bottom: 7px;
-
-
-
 }
 
-
-
-
-
-
-
+/* Large achievement number */
 .metric-card strong {
-
-
-
     font-family: var(--font-display);
-
-
-
     font-size: 2.2rem;
-
-
-
     font-weight: 500;
-
-
-
     color: white;
-
-
-
-    line-height: 1;
-
-
-
+    line-height: 1.1;
 }
 
-
-
-
-
-
-
+/* Description */
 .metric-card p {
-
-
-
     color: var(--text-soft);
-
-
-
     font-size: 0.72rem;
-
-
-
     line-height: 1.45;
-
-
-
     margin-top: 10px;
-
-
-
+    overflow-wrap: break-word;
 }
+
+/* =========================================
+   RESPONSIVE LAYOUT
+   ========================================= */
+
+/* Smaller desktops / tablets: 3 columns */
+@media (max-width: 1100px) {
+    .hero-metrics {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+/* Mobile: 2 columns */
+@media (max-width: 650px) {
+    .hero-metrics {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    .metric-card {
+        min-height: 135px;
+        padding: 18px 14px;
+    }
+
+    .metric-card strong {
+        font-size: 1.9rem;
+    }
+
+    .metric-kicker {
+        font-size: 0.55rem;
+    }
+}
+
+/* Very small phones: 1 column */
+@media (max-width: 400px) {
+    .hero-metrics {
+        grid-template-columns: 1fr;
+    }
+}
+
 
 
 
@@ -10185,4 +9984,429 @@ main section[id] {
         opacity: 1 !important;
         transform: none !important;
     }
+}
+
+
+/* =========================================
+   INCREASE TAG & CATEGORY FONT SIZES
+   ACROSS THE PORTFOLIO
+========================================= */
+
+/* Interest tags and project skill tags */
+.interest-list span,
+.tag-list span {
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    line-height: 1.5;
+    padding: 10px 16px;
+}
+
+/* Small section headings */
+.eyebrow {
+    font-size: 0.85rem;
+}
+
+/* Project, experience and achievement categories */
+.feature-category,
+.experience-type,
+.achievement-priority {
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+
+/* Homepage achievement card labels */
+.metric-kicker {
+    font-size: 0.72rem;
+    line-height: 1.5;
+}
+
+/* Leadership card category labels */
+.card-label {
+    font-size: 0.82rem;
+}
+
+/* Keep tags comfortable on smaller screens */
+@media (max-width: 650px) {
+    .interest-list span,
+    .tag-list span {
+        font-size: 0.85rem;
+        padding: 9px 13px;
+    }
+
+    .metric-kicker {
+        font-size: 0.68rem;
+    }
+}
+
+/* Keep World Top 10 on one line */
+.metric-card:last-child strong {
+    font-size: clamp(1.35rem, 2vw, 2rem);
+    white-space: nowrap;
+    letter-spacing: -0.04em;
+}
+
+
+/* =========================================
+   UPDATED LEADERSHIP SECTION
+   14 CARDS - 3 COLUMNS
+========================================= */
+
+#leadership .leadership-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+    border: none;
+}
+
+#leadership .leadership-card {
+    min-width: 0;
+    min-height: 280px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    padding: 28px;
+
+    border: 1px solid var(--border);
+    border-radius: 16px;
+
+    background: linear-gradient(
+        145deg,
+        rgba(85, 222, 213, 0.055),
+        rgba(255, 255, 255, 0.01)
+    );
+
+    cursor: pointer;
+
+    transition:
+        background 0.3s ease,
+        transform 0.3s ease,
+        border-color 0.3s ease;
+}
+
+#leadership .leadership-card:hover {
+    transform: translateY(-4px);
+    background: rgba(85, 222, 213, 0.06);
+    border-color: var(--accent-border);
+}
+
+#leadership .leadership-card:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 4px;
+}
+
+/* Remove old "Open details" generated text */
+#leadership .leadership-card::after {
+    content: none;
+    display: none;
+}
+
+/* Card number */
+#leadership .card-number {
+    color: var(--accent);
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+/* Card category */
+#leadership .card-label {
+    margin: 24px 0 8px;
+    color: var(--accent);
+    font-size: 0.82rem;
+    line-height: 1.45;
+    letter-spacing: 0.075em;
+    text-transform: uppercase;
+}
+
+/* Card heading */
+#leadership .leadership-card h3 {
+    font-family: var(--font-display);
+    font-size: clamp(1.35rem, 1.75vw, 1.8rem);
+    font-weight: 500;
+    line-height: 1.22;
+    margin: 0 0 12px;
+}
+
+/* Short description */
+#leadership .leadership-summary {
+    font-size: 0.89rem;
+    line-height: 1.65;
+    color: var(--text-soft);
+
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+
+    margin-bottom: 18px;
+}
+
+/* View More label */
+#leadership .leadership-view-more {
+    margin-top: auto;
+    color: var(--accent);
+    font-size: 0.83rem;
+    font-weight: 600;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+}
+
+#leadership .leadership-card:hover
+.leadership-view-more {
+    color: var(--accent-strong);
+}
+
+
+/* =========================================
+   LEADERSHIP DETAIL MODAL
+========================================= */
+
+/* Compact popup for text-only content */
+#leadershipModal .detail-modal-content {
+    width: min(650px, 100%);
+    max-height: min(86vh, 900px);
+    overflow-y: auto;
+
+    padding: 42px;
+
+    border: 1px solid var(--accent-border);
+    border-radius: 18px;
+
+    background: var(--bg-card);
+    color: var(--text);
+}
+
+/* Wider popup when a photograph is present */
+#leadershipModal.has-media .detail-modal-content {
+    width: min(980px, 100%);
+}
+
+/* Modal heading */
+#leadershipModal .detail-modal-content h3 {
+    font-family: var(--font-display);
+    font-size: clamp(1.75rem, 3.5vw, 2.8rem);
+    line-height: 1.2;
+    padding-right: 25px;
+}
+
+/* Modal description */
+#leadershipModal .detail-modal-content p {
+    color: var(--text-soft);
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+/* Close button */
+#leadershipModal .detail-modal-close {
+    position: sticky;
+    top: 0;
+    float: right;
+    z-index: 2;
+
+    display: grid;
+    place-items: center;
+
+    width: 42px;
+    height: 42px;
+
+    border: 1px solid var(--accent-border);
+    border-radius: 50%;
+
+    background: var(--bg-secondary);
+    color: var(--text);
+
+    font-size: 1.7rem;
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease;
+}
+
+#leadershipModal .detail-modal-close:hover {
+    background: var(--accent);
+    color: var(--bg);
+}
+
+/* Image and description side by side */
+#leadershipModal .leadership-detail-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    align-items: start;
+}
+
+/* Modal photograph */
+#leadershipModal .leadership-detail-image {
+    display: block;
+    width: 100%;
+    max-height: 460px;
+
+    object-fit: contain;
+
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--bg-secondary);
+}
+
+/* Watch Video button */
+#leadershipModal .leadership-watch-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 24px;
+    width: fit-content;
+}
+
+
+/* =========================================
+   RESPONSIVE LEADERSHIP LAYOUT
+========================================= */
+
+/* Tablet - 2 cards per row */
+@media (max-width: 1100px) {
+    #leadership .leadership-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* Mobile - 1 card per row */
+@media (max-width: 650px) {
+    #leadership .leadership-grid {
+        grid-template-columns: 1fr;
+    }
+
+    #leadership .leadership-card {
+        min-height: 230px;
+        padding: 23px;
+    }
+
+    #leadership .leadership-card h3 {
+        font-size: 1.5rem;
+    }
+
+    #leadershipModal {
+        padding: 12px;
+    }
+
+    #leadershipModal .detail-modal-content {
+        padding: 25px 20px;
+    }
+
+    #leadershipModal .leadership-detail-layout {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    #leadershipModal .leadership-detail-image {
+        max-height: 330px;
+    }
+}
+
+/* Festival of Lights photo and video */
+
+#leadershipModal .leadership-detail-media {
+    display: grid;
+    gap: 16px;
+    min-width: 0;
+}
+
+#leadershipModal .leadership-detail-video {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: #000;
+}
+
+
+
+/* =========================================
+   FESTIVAL OF LIGHTS MODAL LAYOUT
+========================================= */
+
+#leadershipModal .festival-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+}
+
+/* Description uses full modal width */
+#leadershipModal .festival-description {
+    width: 100%;
+}
+
+#leadershipModal .festival-description p {
+    margin: 0;
+    line-height: 1.8;
+}
+
+/* Photo left, video right */
+#leadershipModal .festival-media {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    align-items: start;
+}
+
+/* Consistent media dimensions */
+#leadershipModal .festival-media img,
+#leadershipModal .festival-media video {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: #071214;
+}
+
+/* Preserve the entire group photo */
+#leadershipModal .festival-media img {
+    object-fit: contain;
+    max-height: none;
+}
+
+/* Preserve video proportions */
+#leadershipModal .festival-media video {
+    object-fit: contain;
+}
+
+/* Wider popup for Festival of Lights */
+#leadershipModal:has(.festival-layout) .detail-modal-content {
+    width: min(1100px, 100%);
+}
+
+/* Mobile layout */
+@media (max-width: 650px) {
+    #leadershipModal .festival-media {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    #leadershipModal .festival-layout {
+        gap: 20px;
+    }
+}
+
+/* IT Girls demonstration button */
+.project-detail .itgirls-demo-button {
+    margin-top: 28px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 0.85rem;
+}
+
+
+/* Cambridge AI video demonstration button */
+.experience-copy .cambridge-demo-button {
+    margin-top: 28px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 0.85rem;
+    width: fit-content;
+    height: auto;
 }

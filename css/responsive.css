@@ -446,3 +446,41 @@
     .project-tab { width:100%; padding:11px 10px; }
     .detail-modal-content { padding:34px 22px 26px; }
 }
+
+/* Final layout rules for five hero highlights and 14 leadership cards. */
+
+@media (min-width: 1101px) {
+    .hero-metrics {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+    }
+
+    #leadership .leadership-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media (min-width: 651px) and (max-width: 1100px) {
+    .hero-metrics {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    #leadership .leadership-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 650px) {
+    .hero-metrics {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    #leadership .leadership-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 400px) {
+    .hero-metrics {
+        grid-template-columns: 1fr;
+    }
+}
